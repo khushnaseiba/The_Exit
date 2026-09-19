@@ -55,6 +55,12 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="terain"
+2d_render/layer_2="player"
+2d_render/layer_3="walls"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
