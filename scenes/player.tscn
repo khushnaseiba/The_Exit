@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://wyllepllding"]
+
+[ext_resource type="Script" uid="uid://7b8txjin171w" path="res://scenes/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb2ia"]
+radius = 1.0
+height = 4.0
+
+[node name="player" type="CharacterBody3D" unique_id=1525211364]
+script = ExtResource("1_3vyb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=871285091]
+shape = SubResource("CapsuleShape3D_bb2ia")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1486673731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5125172, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=910876290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5125172, 0)
+target_position = Vector3(0, 0, -3)
