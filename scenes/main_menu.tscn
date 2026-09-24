@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://bkxdvrg43csi5"]
 
+[ext_resource type="Texture2D" uid="uid://e7q1fh0wk877" path="res://scenes/04H6n-1280x720.png" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://2dvxcpbiov0y" path="res://scenes/main.gd" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dsnw4uid6fxv7" path="res://scenes/obj/ElevenLabs_image_gpt-image-2_Transform this _2026-09-24T14_36_35_r2_c1_r1_c1-350x100.png" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://clog25skvkvwa" path="res://scenes/obj/ElevenLabs_image_gpt-image-2_Transform this _2026-09-24T14_36_35_r2_c1_r1_c2-350x100.png" id="3_8ln24"]
+[ext_resource type="Script" uid="uid://d1o6ux3vrfy1w" path="res://scenes/start.gd" id="3_rtw2f"]
+[ext_resource type="Script" uid="uid://2tg1mv2e1mbb" path="res://scenes/quit.gd" id="5_oa1go"]
+
 [node name="main menu" type="Control" unique_id=387675589]
 layout_mode = 3
 anchors_preset = 15
@@ -9,16 +16,33 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=574154617]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bqqt6")
+script = ExtResource("2_rtw2f")
 
 [node name="start" type="Button" parent="TextureRect" unique_id=671088120]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 84.0
+offset_top = 485.0
+offset_right = 442.0
+offset_bottom = 593.0
+icon = ExtResource("2_wu84c")
+script = ExtResource("3_rtw2f")
 
 [node name="quit" type="Button" parent="TextureRect" unique_id=66289859]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 639.0
+offset_top = 482.0
+offset_right = 997.0
+offset_bottom = 590.0
+icon = ExtResource("3_8ln24")
+script = ExtResource("5_oa1go")
+
+[connection signal="pressed" from="TextureRect/start" to="TextureRect/start" method="_on_pressed"]
+[connection signal="pressed" from="TextureRect/quit" to="TextureRect/start" method="_on_quit_pressed"]
+[connection signal="pressed" from="TextureRect/quit" to="TextureRect/quit" method="_on_pressed"]

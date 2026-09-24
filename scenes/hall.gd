@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body) -> void:
 	if body.name=="player":
 		light.visible = false
-		door.teleport_to_marker(2,90)
+		door.teleport_to_marker(2,180)

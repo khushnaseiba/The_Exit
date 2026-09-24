@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://d1u45jtoktlt2"]
 
+[ext_resource type="Texture2D" uid="uid://dnxegkm0bvw3i" path="res://scenes/obj/ElevenLabs_image_gpt-image-2_Transform this _2026-09-24T14_36_35_r1_c2-1280x720.png" id="1_xo042"]
+[ext_resource type="Script" uid="uid://bfhgmw0h0aoav" path="res://scenes/found.gd" id="2_em3dt"]
+[ext_resource type="Texture2D" uid="uid://causwcnxi2d3" path="res://scenes/obj/ElevenLabs_image_gpt-image-2_Transform this _2026-09-24T14_36_35_r2_c2_r1_c1-320x100.png" id="2_jsluy"]
+[ext_resource type="Script" uid="uid://4b8o7r1ndlg4" path="res://scenes/play_again.gd" id="3_em3dt"]
+[ext_resource type="Texture2D" uid="uid://chcneu0400cj4" path="res://scenes/obj/ElevenLabs_image_gpt-image-2_Transform this _2026-09-24T14_36_35_r2_c2_r1_c2-320x100.png" id="3_u128a"]
+[ext_resource type="Script" uid="uid://reerya76gnh6" path="res://scenes/mainmenu.gd" id="5_4j100"]
+
 [node name="found" type="Control" unique_id=2050509887]
 layout_mode = 3
 anchors_preset = 15
@@ -8,17 +15,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextEdit" type="TextureRect" parent="." unique_id=618668289]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="TextEdit" type="TextureRect" parent="." unique_id=1277313898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xo042")
+script = ExtResource("2_em3dt")
 
 [node name="play again" type="Button" parent="TextEdit" unique_id=1421885470]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 95.0
+offset_top = 411.0
+offset_right = 423.0
+offset_bottom = 519.0
+icon = ExtResource("2_jsluy")
+script = ExtResource("3_em3dt")
 
 [node name="mainmenu" type="Button" parent="TextEdit" unique_id=315984854]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 100.0
+offset_top = 564.0
+offset_right = 428.0
+offset_bottom = 672.0
+icon = ExtResource("3_u128a")
+script = ExtResource("5_4j100")
+
+[connection signal="pressed" from="TextEdit/play again" to="TextEdit/play again" method="_on_pressed"]
+[connection signal="pressed" from="TextEdit/mainmenu" to="TextEdit/mainmenu" method="_on_pressed"]
