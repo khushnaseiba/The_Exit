@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5125172, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5125172, 0)
 target_position = Vector3(0, 0, -3)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=2107431214]
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D" unique_id=2107431214 groups=["player"]]
 layers = 2
-spot_range = 73.36
-spot_angle = 88.12
+spot_range = 3.446
+spot_angle = 23.87

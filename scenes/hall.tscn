@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://pxs10y6yug0q"]
 
-[ext_resource type="Script" uid="uid://wecw28ob6yq" path="res://scenes/hallarea4.gd" id="1_ax3ax"]
+[ext_resource type="Script" uid="uid://pisyrr17361p" path="res://scenes/hall.gd" id="1_7e5qt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5e3yu"]
-size = Vector3(20, 1.04, 20)
+[sub_resource type="BoxShape3D" id="BoxShape3D_bb2ia"]
+size = Vector3(20, 20, 20)
 
-[node name="hall" type="Node3D" unique_id=290613515]
+[node name="hall" type="Area3D" unique_id=1711816331]
+script = ExtResource("1_7e5qt")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=2140956019]
-collision_mask = 0
-script = ExtResource("1_ax3ax")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1410670982]
+shape = SubResource("BoxShape3D_bb2ia")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1694680369]
-shape = SubResource("BoxShape3D_5e3yu")
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1711417807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.248779, 15.85183)
+spot_range = 117.692
+spot_angle = 76.9
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

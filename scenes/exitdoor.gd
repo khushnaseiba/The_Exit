@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var exitdoorposition: Array[Marker3D]
+@export var exitdoorposition= Array[Marker3D]
 var was_visible := true
 var move_coldown := false
 # Called when the node enters the scene tree for the first time.
@@ -9,21 +9,22 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if was_visible and not move_coldown:
 		move_door()
 	was_visible = visible
 
-func teleport_to(position_marker:Marker3D):
-	global_position = position_marker.global_position
-	global_rotation = position_marker.global_rotation
-
 func teleport_to_index(index: int):
+	print(exitdoorposition)
+	print("TELEPORT CALLED: ", index)
+	print("NUMBER OF POSITIONS: ", exitdoorposition.size())
+
 	if index >= 0 and index < exitdoorposition.size():
+		print("TARGET: ", exitdoorposition[index].global_position)
+
 		global_position = exitdoorposition[index].global_position
-		global_rotation = exitdoorposition[index].global_rotation
-		
+		global_rotation = exitdoorposition[index].global_rotation	
 func move_door():
 	move_coldown = true
 	

@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://d1n5qmlc0vp4m"]
+
+[ext_resource type="Texture2D" uid="uid://d2dtyoguy1p6o" path="res://scenes/Pi7_Pngtreeslightly cracked open dark red_18139427-800x800-400x400-1000x1000.png" id="2_bbxho"]
+
+[sub_resource type="GDScript" id="GDScript_ngtlb"]
+script/source = "extends Node3D
+
+var player_near = false
+var is_moving = false
+var is_open = false
+
+@export var open_angle = 90.0
+@export var open_speed = 3.0
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if player_near and Input.is_action_just_pressed(\"interact\") and not is_moving:
+		
+		if is_open:
+			close_door()
+			
+		else:
+			open_door()
+			
+func open_door():
+	is_moving=true
+	is_open=true
+	
+	var target_rotation = rotation_degrees.y + open_angle
+	
+	var tween = create_tween()
+	tween.tween_property(self,\"rotation_degrees:y\",target_rotation,1.0/open_speed)
+	tween.tween_callback(door_finished)
+	
+func close_door():
+	is_moving = true
+	is_open = false
+	
+	var target_rotation = rotation_degrees.y - open_angle
+	
+	var tween = create_tween()
+	tween.tween_property(self,\"rotation_degrees:y\",target_rotation,1.0/open_speed)
+	tween.tween_callback(door_finished)
+	
+func door_finished():
+	is_moving = false
+	
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.name==\"player\":
+		player_near = true
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.name==\"player\":
+		player_near=false
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_soqqc"]
+size = Vector3(5, 10, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5y4v"]
+albedo_texture = ExtResource("2_bbxho")
+uv1_scale = Vector3(-1.7, -1.7, -1.7)
+uv1_offset = Vector3(-0.075, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j6w5w"]
+material = SubResource("StandardMaterial3D_w5y4v")
+size = Vector3(5, 10, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v7gfb"]
+albedo_texture = ExtResource("2_bbxho")
+uv1_scale = Vector3(-1.7, -1.7, -1.7)
+uv1_offset = Vector3(-0.2, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u22ul"]
+material = SubResource("StandardMaterial3D_v7gfb")
+size = Vector3(5, 10, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxyij"]
+size = Vector3(5, 10, 5)
+
+[node name="exitroomdoor" type="Node3D" unique_id=73583501]
+script = SubResource("GDScript_ngtlb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1658061526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=145814546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5, 0.1)
+shape = SubResource("BoxShape3D_soqqc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1540038035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5, 0)
+mesh = SubResource("BoxMesh_j6w5w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=324542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5, 0.2)
+mesh = SubResource("BoxMesh_u22ul")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=715146611]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2101787915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5, 0)
+shape = SubResource("BoxShape3D_nxyij")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

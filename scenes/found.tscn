@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d1u45jtoktlt2"]
+
+[node name="found" type="Control" unique_id=2050509887]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextureRect" parent="." unique_id=618668289]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="play again" type="Button" parent="TextEdit" unique_id=1421885470]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="mainmenu" type="Button" parent="TextEdit" unique_id=315984854]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0

@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://jv2cipogit5g"]
 
-[node name="living room" type="Node3D" unique_id=737997353]
+[ext_resource type="Script" uid="uid://cj8u0ni3v0pxl" path="res://scenes/living_room.gd" id="1_1ibh8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5vjm"]
+size = Vector3(10, 10, 20)
+
+[node name="living room" type="Area3D" unique_id=1391971804]
+script = ExtResource("1_1ibh8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1370782127]
+shape = SubResource("BoxShape3D_e5vjm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

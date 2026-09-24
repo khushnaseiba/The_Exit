@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://c4fpbj6e2qfl5"]
 
-[node name="kitchen" type="Node3D" unique_id=834601678]
+[ext_resource type="Script" uid="uid://ch8h0runbydkp" path="res://scenes/kitchen.gd" id="1_7ilqw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bx5pa"]
+size = Vector3(10, 10, 10)
+
+[node name="kitchen" type="Area3D" unique_id=2041533233]
+script = ExtResource("1_7ilqw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1576014880]
+shape = SubResource("BoxShape3D_bx5pa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
