@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://02eh4do0csw2" path="res://scenes/bed.gd" id="1_2f21x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bb2ia"]
-size = Vector3(10, 10, 10)
+size = Vector3(5, 3, 10)
 
 [node name="bed" type="Area3D" unique_id=1583168039]
 script = ExtResource("1_2f21x")
