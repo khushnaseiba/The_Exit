@@ -259,6 +259,7 @@ size = Vector3(240, 20, 0.4)
 size = Vector3(15, 0.2, 7)
 
 [sub_resource type="Environment" id="Environment_bb2ia"]
+background_mode = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8nl4"]
 albedo_texture = ExtResource("30_litwm")
@@ -1098,7 +1099,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -217.85754, 0, -15)
 shape = SubResource("BoxShape3D_m0y6p")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="StaticBody3D2" unique_id=388470985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.49304, 10, -240.66364)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.39172, 10, -39.31299)
 mesh = SubResource("BoxMesh_883s8")
 
 [node name="TableSmall" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1298924954]
